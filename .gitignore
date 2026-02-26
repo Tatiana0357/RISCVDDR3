@@ -1,0 +1,29 @@
+# Arquivos e pastas temporárias do Vivado
+.Xil/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.gen/
+*.sim_scripts/
+dfx_runtime/
+
+# Logs e backups do Vivado
+*.jou
+*.log
+*.str
+*backup*
+
+# Arquivos de compilação C/C++ e temporários
+
+*.elf
+*.o
+*.d
+codigo_assembly.txt
+main.bin
+
+# Arquivos de Sistema Operacional
+
+.DS_Store
+Thumbs.db
