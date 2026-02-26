@@ -2,7 +2,7 @@
 
 Esta pasta contém os arquivos essenciais de suporte à compilação *bare-metal* (sem sistema operacional) para a arquitetura RISC-V (`rv32imafc`), bem como o binário final gerado para testes do modelo de Machine Learning.
 
-## 📂 Arquivos da Pasta
+## Arquivos da Pasta
 
 * **`start.S`**: Código Assembly de inicialização (Boot code/Startup). É responsável por configurar o hardware básico antes do código em C++ rodar (como inicializar o ponteiro de pilha `sp`, limpar a seção BSS e saltar para a função `main`).
 * **`linker.ld`**: Script do Linker. Define o mapa de memória da FPGA, informando ao compilador exatamente em quais endereços de memória as seções de código (`.text`), dados (`.data`, `.rodata`) e variáveis não inicializadas (`.bss`) devem ser alocadas.
@@ -10,7 +10,7 @@ Esta pasta contém os arquivos essenciais de suporte à compilação *bare-metal
 
 ---
 
-## 🛠️ Fluxo de Compilação
+## Fluxo de Compilação
 
 Caso você altere o código fonte (`main.cpp` ou `model.h`) e precise gerar um novo `.hex`, utilize os comandos abaixo. 
 

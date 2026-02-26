@@ -1,4 +1,4 @@
-## 🚀 Como Preparar o Projeto no Vivado (Pós-Clone)
+## Como Preparar o Projeto no Vivado (Pós-Clone)
 
 Como este repositório ignora arquivos temporários e binários pesados para economizar espaço, ao clonar o projeto na sua máquina, você precisará gerar os arquivos de suporte do Block Design (onde está configurado o controlador DDR3 e os clocks) antes de rodar a síntese.
 

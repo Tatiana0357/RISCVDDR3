@@ -4,14 +4,14 @@ Este diretório contém os arquivos para execução de um modelo de Machine Lear
 
 O projeto realiza a inferência de 3 amostras do clássico dataset Iris (Setosa, Virginica e Versicolor). O resultado da classificação é mapeado diretamente para o registrador `x18`, que pode ser utilizado para acender LEDs na placa de desenvolvimento.
 
-## 📂 Arquivos do Projeto
+## Arquivos do Projeto
 
 * **`main.cpp`**: Código principal em C++ que instancia o modelo, roda as inferências em um loop contínuo e joga o resultado no registrador `x18` (LEDs). Possui delays em Assembly para permitir a visualização física na FPGA.
 * **`model.h`**: Modelo Random Forest puro em C++ contendo as árvores de decisão. Foi gerado utilizando as ferramentas da biblioteca [ArduinoMicroML (TronixLab)](https://github.com/TronixLab/ArduinoMicroML).
 * **`main2.hex`**: Código compilado (instruções de máquina) a partir do `main.cpp` e `model.h`. É este arquivo que o processador RISC-V vai de fato entender e executar.
 * **`teste.py`**: Script em Python responsável por ler o arquivo `.hex` e enviar as instruções, linha por linha, via comunicação Serial (UART) para a FPGA. O envio termina com uma palavra de controle `0xFFFFFFFF`.
 
-## 🚀 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 

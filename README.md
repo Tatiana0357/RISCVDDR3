@@ -1,6 +1,6 @@
 # SoC RISC-V em FPGA (Arty A7) com TinyML e DDR3
 
-## 🎯 O Propósito do Projeto
+## O Propósito do Projeto
 
 Este projeto foi criado para um processador **RISC-V (bare-metal)** dentro de uma FPGA **Artix-7 (Placa Arty A7)** e o configuramos para utilizar a memória externa **DDR3** da placa.
 
@@ -10,12 +10,12 @@ Os codigos são compilado no computador e as instruções geradas são enviadas 
 
 ---
 
-## 📂 Estrutura do Repositório
+## Estrutura do Repositório
 
 
 O projeto está dividido entre a descrição de hardware e os softwares e testes (pastas auxiliares).
 
-### 🖥️ Hardware (Arquivos Verilog)
+### Hardware (Arquivos Verilog)
 
 Localizados na pasta GIT.srcs/sources_1/new/, estes são os arquivos HDL que descrevem o circuito a ser sintetizado na FPGA através do Xilinx Vivado:
 
@@ -25,7 +25,7 @@ Localizados na pasta GIT.srcs/sources_1/new/, estes são os arquivos HDL que des
 * **`uart_rx.v`**: Módulo base de recepção serial. Responsável por ler a linha RX física e extrair os bytes (8 bits) enviados pelo computador, lidando com os tempos e baud rate da comunicação.
 * **`recebe_uart_32b.v`**: Módulo customizado de agrupamento. Ele recebe os bytes capturados pelo `uart_rx.v` e os empacota em palavras de 32 bits, que é o formato necessário para alimentar as instruções na memória do RISC-V.
 
-### 📁 Diretórios Auxiliares
+### Diretórios Auxiliares
 * **`RandomFlorest/`**: Contém o código C++ com as árvores de decisão do modelo e o script em Python (`teste.py`) responsável por transmitir o executável via porta serial.
 * **``RandomFlorest/CasosTeste/`**: Armazena os scripts de linker (`linker.ld`), código de boot (`start.S`) e os arquivos binários `.hex` gerados durante a compilação do C++.
 * **`MIG/`**: Onde mostra as configurações do MIG.
@@ -33,7 +33,7 @@ Localizados na pasta GIT.srcs/sources_1/new/, estes são os arquivos HDL que des
 
 ---
 
-## ⚙️ Como a Mágica Acontece (Fluxo de Execução)
+## Como a Mágica Acontece (Fluxo de Execução)
 
 O projeto une hardware e software seguindo este fluxo:
 
@@ -44,7 +44,7 @@ O projeto une hardware e software seguindo este fluxo:
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 * **Placa:** Digilent Arty A7 (Xilinx Artix-7 `xc7a35ti-csg324-1L`)
 * **Processador:** RISC-V rv32imafc (FemtoRV32)
 * **Software:** Xilinx Vivado (Síntese e IP MIG DDR3), Toolchain GCC RISC-V.
@@ -52,7 +52,7 @@ O projeto une hardware e software seguindo este fluxo:
 
 ---
 
-## 📜 Créditos e Licenças
+## Créditos e Licenças
 
 Este projeto utiliza implementações de código aberto de terceiros. Agradecimentos especiais aos seguintes projetos:
 
