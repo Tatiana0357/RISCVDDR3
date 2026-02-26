@@ -20,25 +20,26 @@ Caso você altere o código fonte (`main.cpp` ou `model.h`) e precise gerar um n
 Aqui unimos o código de inicialização (`start.S`) e o código principal (`main.cpp`), seguindo as regras de memória do `linker.ld`.
 ```bash
 riscv64-unknown-elf-g++ -march=rv32imafc -mabi=ilp32f -O0 -nostdlib -fno-exceptions -fno-rtti -T linker.ld -o firmware.elf start.S main.cpp -lgcc
-
+```
 2. Gerar o arquivo Hex em formato Verilog (Opcional):
 
-Bash
+```bash
 riscv64-unknown-elf-objcopy -O verilog firmware.elf firmware.hex
-
+```
 3. Gerar o dump do Assembly para análise (Opcional):
 Muito útil para depurar e verificar se as instruções geradas fazem sentido.
 
-Bash
+```bash
 riscv64-unknown-elf-objdump -d firmware.elf > codigo_assembly.txt
-
+```
 4. Extrair o binário cru (.bin):
 
-Bash
+```bash
 riscv64-unknown-elf-objcopy -O binary firmware.elf main.bin
-
+```
 5. Formatar o binário para .hex de 32 bits:
 Esse é o passo final que gera o arquivo consumido pelo script Python de envio serial.
 
-Bash
+```bash
 hexdump -v -e '1/4 "%08X\n"' main.bin > main.hex
+```
