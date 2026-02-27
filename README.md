@@ -54,6 +54,7 @@ O projeto une hardware e software seguindo este fluxo:
 
 No vídeo abaixo, você pode ver o momento exato em que enviamos os dados via UART. Assim que a placa recebe a palavra de encerramento, o RISC-V processa a Random Forest e os LEDs acendem, classificando corretamente a espécie da flor baseada no dataset Iris. Sendo o led4 para 2, led5 para 1, led6 para 0.
 
+https://github.com/user-attachments/assets/c8df1279-f3c3-42a0-9b6a-eefdfcdfaff1
 
 ---
 
