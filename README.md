@@ -26,8 +26,8 @@ Localizados na pasta GIT.srcs/sources_1/new/, estes são os arquivos HDL que des
 * **`recebe_uart_32b.v`**: Módulo customizado de agrupamento. Ele recebe os bytes capturados pelo `uart_rx.v` e os empacota em palavras de 32 bits, que é o formato necessário para alimentar as instruções na memória do RISC-V.
 
 ### Diretórios Auxiliares
-* **`RandomFlorest/`**: Contém o código C++ com as árvores de decisão do modelo e o script em Python (`teste.py`) responsável por transmitir o executável via porta serial.
-* **``RandomFlorest/CasosTeste/`**: Armazena os scripts de linker (`linker.ld`), código de boot (`start.S`) e os arquivos binários `.hex` gerados durante a compilação do C++.
+* **`RandomForest/`**: Contém o código C++ com as árvores de decisão do modelo e o script em Python (`teste.py`) responsável por transmitir o executável via porta serial.
+* **``RandomForest/CasosTeste/`**: Armazena os scripts de linker (`linker.ld`), código de boot (`start.S`) e os arquivos binários `.hex` gerados durante a compilação do C++.
 * **`MIG/`**: Onde mostra as configurações do MIG.
 * **`MIG/Figuras/`**: Imagens de suporte e documentação visual (ex: parâmetros de configuração do Memory Interface Generator - MIG).
 
