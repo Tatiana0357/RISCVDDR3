@@ -1,4 +1,4 @@
-# SoC RISC-V em FPGA (Arty A7) com TinyML e DDR3
+# RISC-V em FPGA (Arty A7) com TinyML e DDR3
 
 ## O Propósito do Projeto
 
