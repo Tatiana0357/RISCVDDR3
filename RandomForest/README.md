@@ -4,6 +4,14 @@ Este diretório contém os arquivos para execução de um modelo de Machine Lear
 
 O projeto realiza a inferência de 3 amostras do clássico dataset Iris (Setosa, Virginica e Versicolor). O resultado da classificação é mapeado diretamente para o registrador `x18`, que pode ser utilizado para acender LEDs na placa de desenvolvimento.
 
+## Como funciona o fluxo de dados?
+
+Para que o RISC-V consiga executar a Random Forest, o processo ocorre nas seguintes etapas:
+1. **Compilação:** O código C++ (que contém o modelo da Random Forest e as entradas de teste do dataset Iris) é compilado para linguagem de máquina da arquitetura RISC-V, gerando um arquivo hexadecimal (`.hex`).
+2. **Transmissão:** O script Python lê esse arquivo `.hex` e envia as instruções geradas para a FPGA através da comunicação serial (UART).
+3. **Armazenamento na DDR3:** Dentro da FPGA, os módulos de hardware recebem esses dados via UART e os gravam diretamente na **memória externa DDR3** da placa.
+4. **Execução:** Quando o envio termina, o processador RISC-V acessa a memória DDR3, lê as instruções armazenadas lá e começa a executar as inferências, jogando o resultado final no registrador que acende os LEDs.
+
 ## Arquivos do Projeto
 
 * **`main.cpp`**: Código principal em C++ que instancia o modelo, roda as inferências em um loop contínuo e joga o resultado no registrador `x18` (LEDs). Possui delays em Assembly para permitir a visualização física na FPGA.
