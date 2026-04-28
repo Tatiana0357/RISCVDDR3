@@ -1,4 +1,4 @@
-# RISC-V em FPGA (Arty A7) com TinyML e DDR3
+# RISC-V em FPGA (Arty A7) com Random forest e DDR3
 
 ## O Propósito do Projeto
 
@@ -33,14 +33,14 @@ Localizados na pasta GIT.srcs/sources_1/new/, estes são os arquivos HDL que des
 
 ---
 
-## Como a Mágica Acontece (Fluxo de Execução)
+## Fluxo de Execução
 
 O projeto une hardware e software seguindo este fluxo:
 
 1. **Síntese:** O hardware descrito nos arquivos `.v` é sintetizado junto com o IP do controlador de memória DDR3 no Vivado e embarcado na placa Arty A7.
 2. **Compilação:** O modelo em C++ é compilado utilizando a toolchain `riscv64-unknown-elf`, gerando um executável (`.hex`).
-3. **Carga Dinâmica:** O script Python abre a conexão UART e injeta o `.hex` linha por linha. O módulo `recebe_uart_32b.v` decodifica esses dados e os despeja na memória da FPGA.
-4. **Execução e Resultado:** Ao receber a palavra-chave de encerramento (`0xFFFFFFFF`), o RISC-V sai do estado de espera e inicia o processamento do dataset Iris. O resultado da inferência é jogado diretamente no registrador `x18`, acendendo os LEDs físicos da placa indicando a classe da flor identificada.
+3. **Carga Dinâmica na DDR3:** O script Python abre a conexão UART e injeta o `.hex` (que contém a Random Forest e as entradas) linha por linha. O módulo `recebe_uart_32b.v` decodifica esses dados e os grava diretamente na **memória externa DDR3** da placa.
+4. **Execução e Resultado:** Ao receber a palavra-chave de encerramento (`0xFFFFFFFF`), o RISC-V sai do estado de espera, busca essas instruções armazenadas na DDR3 e inicia o processamento do dataset Iris. O resultado da inferência é jogado diretamente no registrador `x18`, acendendo os LEDs físicos da placa indicando a classe da flor identificada.
 
 ---
 
